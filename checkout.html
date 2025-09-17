@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title data-en="Checkout - TechStore" data-fa="پرداخت - تک‌استور">Checkout - TechStore</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Vazirmatn:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <div class="nav-brand">
+                <i class="fas fa-laptop-code"></i>
+                <span data-en="TechStore" data-fa="تک‌استور">TechStore</span>
+            </div>
+            
+            <nav class="nav-menu">
+                <a href="index.html" class="nav-link" data-en="Home" data-fa="خانه">Home</a>
+                <a href="products.html" class="nav-link" data-en="Products" data-fa="محصولات">Products</a>
+                <a href="blog.html" class="nav-link" data-en="Blog" data-fa="بلاگ">Blog</a>
+            </nav>
+
+            <div class="header-actions">
+                <button class="lang-toggle" onclick="toggleLanguage()">
+                    <span class="lang-text">FA</span>
+                </button>
+                <button class="cart-btn" onclick="location.href='cart.html'">
+                    <i class="fas fa-shopping-cart"></i>
+                    <span class="cart-count" id="cartCount">0</span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Checkout Section -->
+    <section class="checkout-section">
+        <div class="container">
+            <div class="checkout-header">
+                <h1 data-en="Checkout" data-fa="پرداخت">Checkout</h1>
+                <div class="checkout-steps">
+                    <div class="step active">
+                        <span>1</span>
+                        <label data-en="Information" data-fa="اطلاعات">Information</label>
+                    </div>
+                    <div class="step" id="step2">
+                        <span>2</span>
+                        <label data-en="Payment" data-fa="پرداخت">Payment</label>
+                    </div>
+                    <div class="step" id="step3">
+                        <span>3</span>
+                        <label data-en="Confirmation" data-fa="تایید">Confirmation</label>
+                    </div>
+                </div>
+            </div>
+
+            <div class="checkout-content">
+                <div class="checkout-form">
+                    <!-- Step 1: Information -->
+                    <div id="informationStep" class="checkout-step active">
+                        <div class="form-card">
+                            <h3 data-en="Shipping Information" data-fa="اطلاعات ارسال">Shipping Information</h3>
+                            <form id="shippingForm">
+                                <div class="form-row">
+                                    <div class="form-group">
+                                        <label data-en="First Name" data-fa="نام">First Name</label>
+                                        <input type="text" id="firstName" required>
+                                    </div>
+                                    <div class="form-group">
+                                        <label data-en="Last Name" data-fa="نام خانوادگی">Last Name</label>
+                                        <input type="text" id="lastName" required>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label data-en="Email" data-fa="ایمیل">Email</label>
+                                    <input type="email" id="email" required>
+                                </div>
+                                <div class="form-group">
+                                    <label data-en="Phone" data-fa="تلفن">Phone</label>
+                                    <input type="tel" id="phone" required>
+                                </div>
+                                <div class="form-group">
+                                    <label data-en="Address" data-fa="آدرس">Address</label>
+                                    <input type="text" id="address" required>
+                                </div>
+                                <div class="form-row">
+                                    <div class="form-group">
+                                        <label data-en="City" data-fa="شهر">City</label>
+                                        <input type="text" id="city" required>
+                                    </div>
+                                    <div class="form-group">
+                                        <label data-en="Postal Code" data-fa="کد پستی">Postal Code</label>
+                                        <input type="text" id="postalCode" required>
+                                    </div>
+                                </div>
+                                <button type="button" class="btn-primary" onclick="nextStep()" data-en="Continue to Payment" data-fa="ادامه به پرداخت">Continue to Payment</button>
+                            </form>
+                        </div>
+                    </div>
+
+                    <!-- Step 2: Payment -->
+                    <div id="paymentStep" class="checkout-step">
+                        <div class="form-card">
+                            <h3 data-en="Payment Information" data-fa="اطلاعات پرداخت">Payment Information</h3>
+                            <form id="paymentForm">
+                                <div class="form-group">
+                                    <label data-en="Card Number" data-fa="شماره کارت">Card Number</label>
+                                    <input type="text" id="cardNumber" placeholder="1234 5678 9012 3456" maxlength="19">
+                                </div>
+                                <div class="form-row">
+                                    <div class="form-group">
+                                        <label data-en="Expiry Date" data-fa="تاریخ انقضا">Expiry Date</label>
+                                        <input type="text" id="expiryDate" placeholder="MM/YY" maxlength="5">
+                                    </div>
+                                    <div class="form-group">
+                                        <label data-en="CVV" data-fa="کد امنیتی">CVV</label>
+                                        <input type="text" id="cvv" placeholder="123" maxlength="3">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label data-en="Cardholder Name" data-fa="نام صاحب کارت">Cardholder Name</label>
+                                    <input type="text" id="cardholderName">
+                                </div>
+                                <button type="button" class="btn-primary" onclick="processPayment()" data-en="Process Payment" data-fa="پردازش پرداخت">Process Payment</button>
+                            </form>
+                        </div>
+                    </div>
+
+                    <!-- Step 3: OTP Verification -->
+                    <div id="otpStep" class="checkout-step">
+                        <div class="form-card">
+                            <h3 data-en="Verify Payment" data-fa="تایید پرداخت">Verify Payment</h3>
+                            <p data-en="Please enter the OTP sent to your mobile" data-fa="لطفا کد یکبار مصرف ارسالی به موبایل خود را وارد کنید">Please enter the OTP sent to your mobile</p>
+                            <form id="otpForm">
+                                <div class="otp-container">
+                                    <input type="text" class="otp-input" maxlength="1" oninput="moveToNext(this, 0)">
+                                    <input type="text" class="otp-input" maxlength="1" oninput="moveToNext(this, 1)">
+                                    <input type="text" class="otp-input" maxlength="1" oninput="moveToNext(this, 2)">
+                                    <input type="text" class="otp-input" maxlength="1" oninput="moveToNext(this, 3)">
+                                    <input type="text" class="otp-input" maxlength="1" oninput="moveToNext(this, 4)">
+                                    <input type="text" class="otp-input" maxlength="1" oninput="moveToNext(this, 5)">
+                                </div>
+                                <button type="button" class="btn-primary" onclick="verifyOTP()" data-en="Verify & Complete Order" data-fa="تایید و تکمیل سفارش">Verify & Complete Order</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Order Summary -->
+                <div class="order-summary">
+                    <div class="summary-card">
+                        <h3 data-en="Order Summary" data-fa="خلاصه سفارش">Order Summary</h3>
+                        <div id="orderItems">
+                            <!-- Order items will be loaded here -->
+                        </div>
+                        <hr>
+                        <div class="summary-row">
+                            <span data-en="Subtotal:" data-fa="جمع جزء:">Subtotal:</span>
+                            <span id="orderSubtotal">$0.00</span>
+                        </div>
+                        <div class="summary-row">
+                            <span data-en="Shipping:" data-fa="حمل و نقل:">Shipping:</span>
+                            <span id="orderShipping">$9.99</span>
+                        </div>
+                        <div class="summary-row">
+                            <span data-en="Tax:" data-fa="مالیات:">Tax:</span>
+                            <span id="orderTax">$0.00</span>
+                        </div>
+                        <div class="summary-row total">
+                            <span data-en="Total:" data-fa="مجموع:">Total:</span>
+                            <span id="orderTotal">$0.00</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3 data-en="TechStore" data-fa="تک‌استور">TechStore</h3>
+                    <p data-en="Your trusted partner for technology products" data-fa="شریک مورد اعتماد شما برای محصولات فناوری">Your trusted partner for technology products</p>
+                </div>
+                <div class="footer-section">
+                    <h4 data-en="Quick Links" data-fa="لینک‌های سریع">Quick Links</h4>
+                    <ul>
+                        <li><a href="index.html" data-en="Home" data-fa="خانه">Home</a></li>
+                        <li><a href="products.html" data-en="Products" data-fa="محصولات">Products</a></li>
+                        <li><a href="blog.html" data-en="Blog" data-fa="بلاگ">Blog</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4 data-en="Contact" data-fa="تماس">Contact</h4>
+                    <p data-en="Email: info@techstore.com" data-fa="ایمیل: info@techstore.com">Email: info@techstore.com</p>
+                    <p data-en="Phone: +1 (555) 123-4567" data-fa="تلفن: +۱ (۵۵۵) ۱۲۳-۴۵۶۷">Phone: +1 (555) 123-4567</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p data-en="© 2024 TechStore. All rights reserved." data-fa="© ۲۰۲۴ تک‌استور. تمامی حقوق محفوظ است.">© 2024 TechStore. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Toast Container -->
+    <div id="toastContainer" class="toast-container"></div>
+
+    <script src="app.js"></script>
+</body>
+</html>

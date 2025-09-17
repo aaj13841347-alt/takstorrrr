@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title data-en="Product Details - TechStore" data-fa="جزئیات محصول - تک‌استور">Product Details - TechStore</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Vazirmatn:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <div class="nav-brand">
+                <i class="fas fa-laptop-code"></i>
+                <span data-en="TechStore" data-fa="تک‌استور">TechStore</span>
+            </div>
+            
+            <nav class="nav-menu">
+                <a href="index.html" class="nav-link" data-en="Home" data-fa="خانه">Home</a>
+                <a href="products.html" class="nav-link" data-en="Products" data-fa="محصولات">Products</a>
+                <a href="blog.html" class="nav-link" data-en="Blog" data-fa="بلاگ">Blog</a>
+            </nav>
+
+            <div class="header-actions">
+                <button class="lang-toggle" onclick="toggleLanguage()">
+                    <span class="lang-text">FA</span>
+                </button>
+                <button class="cart-btn" onclick="location.href='cart.html'">
+                    <i class="fas fa-shopping-cart"></i>
+                    <span class="cart-count" id="cartCount">0</span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Breadcrumb -->
+    <nav class="breadcrumb">
+        <div class="container">
+            <a href="index.html" data-en="Home" data-fa="خانه">Home</a>
+            <i class="fas fa-chevron-right"></i>
+            <a href="products.html" data-en="Products" data-fa="محصولات">Products</a>
+            <i class="fas fa-chevron-right"></i>
+            <span id="productBreadcrumb">Product</span>
+        </div>
+    </nav>
+
+    <!-- Product Detail -->
+    <section class="product-detail">
+        <div class="container">
+            <div class="product-detail-grid">
+                <div class="product-image">
+                    <img id="productImage" src="" alt="Product Image">
+                </div>
+                <div class="product-info">
+                    <h1 id="productName">Product Name</h1>
+                    <div class="product-price">
+                        <span class="price" id="productPrice">$0</span>
+                    </div>
+                    <div class="product-description">
+                        <p id="productDescription">Product description will be loaded here...</p>
+                    </div>
+                    <div class="product-actions">
+                        <div class="quantity-selector">
+                            <label data-en="Quantity:" data-fa="تعداد:">Quantity:</label>
+                            <div class="quantity-controls">
+                                <button onclick="changeQuantity(-1)">-</button>
+                                <input type="number" id="quantity" value="1" min="1" max="10">
+                                <button onclick="changeQuantity(1)">+</button>
+                            </div>
+                        </div>
+                        <button class="btn-primary add-to-cart" onclick="addToCartFromDetail()">
+                            <i class="fas fa-shopping-cart"></i>
+                            <span data-en="Add to Cart" data-fa="افزودن به سبد">Add to Cart</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Product Tabs -->
+    <section class="product-tabs">
+        <div class="container">
+            <div class="tab-buttons">
+                <button class="tab-btn active" onclick="showTab('specifications')" data-en="Specifications" data-fa="مشخصات">Specifications</button>
+                <button class="tab-btn" onclick="showTab('reviews')" data-en="Reviews" data-fa="نظرات">Reviews</button>
+            </div>
+            
+            <div class="tab-content">
+                <div id="specifications" class="tab-panel active">
+                    <h3 data-en="Technical Specifications" data-fa="مشخصات فنی">Technical Specifications</h3>
+                    <div class="specs-grid" id="specsGrid">
+                        <!-- Specifications will be loaded dynamically -->
+                    </div>
+                </div>
+                
+                <div id="reviews" class="tab-panel">
+                    <h3 data-en="Customer Reviews" data-fa="نظرات مشتریان">Customer Reviews</h3>
+                    <div class="reviews-list" id="reviewsList">
+                        <!-- Reviews will be loaded dynamically -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3 data-en="TechStore" data-fa="تک‌استور">TechStore</h3>
+                    <p data-en="Your trusted partner for technology products" data-fa="شریک مورد اعتماد شما برای محصولات فناوری">Your trusted partner for technology products</p>
+                </div>
+                <div class="footer-section">
+                    <h4 data-en="Quick Links" data-fa="لینک‌های سریع">Quick Links</h4>
+                    <ul>
+                        <li><a href="index.html" data-en="Home" data-fa="خانه">Home</a></li>
+                        <li><a href="products.html" data-en="Products" data-fa="محصولات">Products</a></li>
+                        <li><a href="blog.html" data-en="Blog" data-fa="بلاگ">Blog</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4 data-en="Contact" data-fa="تماس">Contact</h4>
+                    <p data-en="Email: info@techstore.com" data-fa="ایمیل: info@techstore.com">Email: info@techstore.com</p>
+                    <p data-en="Phone: +1 (555) 123-4567" data-fa="تلفن: +۱ (۵۵۵) ۱۲۳-۴۵۶۷">Phone: +1 (555) 123-4567</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p data-en="© 2024 TechStore. All rights reserved." data-fa="© ۲۰۲۴ تک‌استور. تمامی حقوق محفوظ است.">© 2024 TechStore. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Toast Container -->
+    <div id="toastContainer" class="toast-container"></div>
+
+    <script src="app.js"></script>
+</body>
+</html>

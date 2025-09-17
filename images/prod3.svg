@@ -1,0 +1,11 @@
+<svg width="200" height="200" viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg">
+<rect width="200" height="200" fill="#F7FAFC"/>
+<rect x="40" y="60" width="120" height="80" rx="40" fill="#FFFFFF" stroke="#E2E8F0" stroke-width="2"/>
+<ellipse cx="75" cy="100" rx="15" ry="20" fill="#2D3748"/>
+<ellipse cx="125" cy="100" rx="15" ry="20" fill="#2D3748"/>
+<circle cx="75" cy="95" r="8" fill="#1A202C"/>
+<circle cx="125" cy="95" r="8" fill="#1A202C"/>
+<path d="M85 100 Q100 120 115 100" stroke="#CBD5E0" stroke-width="2" fill="none"/>
+<circle cx="100" cy="50" r="4" fill="#E53E3E"/>
+<text x="100" y="175" text-anchor="middle" fill="#2D3748" font-family="Inter" font-size="12" font-weight="600">AirPods Pro 2</text>
+</svg>

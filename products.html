@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title data-en="Products - TechStore" data-fa="محصولات - تک‌استور">Products - TechStore</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Vazirmatn:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <div class="nav-brand">
+                <i class="fas fa-laptop-code"></i>
+                <span data-en="TechStore" data-fa="تک‌استور">TechStore</span>
+            </div>
+            
+            <nav class="nav-menu">
+                <a href="index.html" class="nav-link" data-en="Home" data-fa="خانه">Home</a>
+                <a href="products.html" class="nav-link active" data-en="Products" data-fa="محصولات">Products</a>
+                <a href="blog.html" class="nav-link" data-en="Blog" data-fa="بلاگ">Blog</a>
+            </nav>
+
+            <div class="header-actions">
+                <button class="lang-toggle" onclick="toggleLanguage()">
+                    <span class="lang-text">FA</span>
+                </button>
+                <button class="cart-btn" onclick="location.href='cart.html'">
+                    <i class="fas fa-shopping-cart"></i>
+                    <span class="cart-count" id="cartCount">0</span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Page Header -->
+    <section class="page-header">
+        <div class="container">
+            <h1 data-en="Our Products" data-fa="محصولات ما">Our Products</h1>
+            <p data-en="Discover our extensive collection of technology products" data-fa="مجموعه گسترده محصولات فناوری ما را کشف کنید">Discover our extensive collection of technology products</p>
+        </div>
+    </section>
+
+    <!-- Filters -->
+    <section class="filters">
+        <div class="container">
+            <div class="filter-row">
+                <div class="filter-group">
+                    <label data-en="Category:" data-fa="دسته‌بندی:">Category:</label>
+                    <select id="categoryFilter" onchange="applyFilters()">
+                        <option value="all" data-en="All Categories" data-fa="همه دسته‌ها">All Categories</option>
+                        <option value="laptops" data-en="Laptops" data-fa="لپ‌تاپ">Laptops</option>
+                        <option value="phones" data-en="Phones" data-fa="تلفن">Phones</option>
+                        <option value="accessories" data-en="Accessories" data-fa="لوازم جانبی">Accessories</option>
+                    </select>
+                </div>
+                <div class="filter-group">
+                    <label data-en="Sort by:" data-fa="مرتب‌سازی:">Sort by:</label>
+                    <select id="sortFilter" onchange="applyFilters()">
+                        <option value="name" data-en="Name" data-fa="نام">Name</option>
+                        <option value="price-low" data-en="Price: Low to High" data-fa="قیمت: کم به زیاد">Price: Low to High</option>
+                        <option value="price-high" data-en="Price: High to Low" data-fa="قیمت: زیاد به کم">Price: High to Low</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Products Grid -->
+    <section class="products">
+        <div class="container">
+            <div class="products-grid" id="productsGrid">
+                <!-- Products will be dynamically loaded -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3 data-en="TechStore" data-fa="تک‌استور">TechStore</h3>
+                    <p data-en="Your trusted partner for technology products" data-fa="شریک مورد اعتماد شما برای محصولات فناوری">Your trusted partner for technology products</p>
+                </div>
+                <div class="footer-section">
+                    <h4 data-en="Quick Links" data-fa="لینک‌های سریع">Quick Links</h4>
+                    <ul>
+                        <li><a href="index.html" data-en="Home" data-fa="خانه">Home</a></li>
+                        <li><a href="products.html" data-en="Products" data-fa="محصولات">Products</a></li>
+                        <li><a href="blog.html" data-en="Blog" data-fa="بلاگ">Blog</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4 data-en="Contact" data-fa="تماس">Contact</h4>
+                    <p data-en="Email: info@techstore.com" data-fa="ایمیل: info@techstore.com">Email: info@techstore.com</p>
+                    <p data-en="Phone: +1 (555) 123-4567" data-fa="تلفن: +۱ (۵۵۵) ۱۲۳-۴۵۶۷">Phone: +1 (555) 123-4567</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p data-en="© 2024 TechStore. All rights reserved." data-fa="© ۲۰۲۴ تک‌استور. تمامی حقوق محفوظ است.">© 2024 TechStore. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Toast Container -->
+    <div id="toastContainer" class="toast-container"></div>
+
+    <script src="app.js"></script>
+</body>
+</html>
